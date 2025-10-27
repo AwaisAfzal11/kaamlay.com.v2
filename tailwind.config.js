@@ -5,7 +5,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'brand-orange': '#EC6410',
+        'brand-black': '#000000',
+        'brand-white': '#FFFFFF',
+        'brand-gray': '#F5F5F5',
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+      }
     },
   },
-  plugins: [],
+  // Add the typography plugin here
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
