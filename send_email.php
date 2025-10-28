@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // --- Email Configuration ---
-    $to = "afzalawais353@gmail.com"; // YOUR EMAIL ADDRESS
+    $to = "kaamlay.com@gmail.com"; // YOUR EMAIL ADDRESS
     $subject = "New Kaamlay.com Contact Form Submission from: " . $name;
     
     // Construct the email message

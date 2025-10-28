@@ -6,10 +6,10 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Pages/Home/Home";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import About from "./Pages/About/About";
 import Contact from "./Pages/Contact/Contact";
-import Services from "./Pages/Services/Services";
-import Membership from "./Pages/Membership/Membership";
+// import About from "./Pages/About/About";
+// import Services from "./Pages/Services/Services";
+// import Membership from "./Pages/Membership/Membership";
 
 function App() {
   useEffect(() => {
@@ -22,10 +22,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/membership" element={<Membership />} />
+          <Route path="/membership" element={<Membership />} /> */}
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
       <Footer />
