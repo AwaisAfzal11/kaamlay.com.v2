@@ -6,23 +6,41 @@ const Contact = () => {
     email: '',
     phone: '',
     service: '',
+    package: '', // Added new state for package selection
     message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
+  // Comprehensive list of all services
   const services = [
     'Electrical Works',
     'Plumbing Works',
-    'AC Services',
-    'Carpentry',
-    'Painting',
+    'AC & Refrigerator Services',
+    'Carpenter Works',
+    'Car Wash (Home Service)',
+    'Free Home General Check-Up',
+    'Free Winter Check-Up',
+    '---', // Divider
     'Deep Cleaning',
-    'Appliance Repair',
+    'Glass & Window Cleaning',
+    'Painting & Renovation',
     'Pest Control',
-    'General Maintenance',
+    'Water Tank Cleaning',
+    'Appliance Installation',
+    'Bathroom & Kitchen Upgrades',
+    'Safety & Fire Equipment Installation',
+    'Garden & Outdoor Maintenance',
     'Other'
+  ];
+
+  // List of membership packages
+  const packages = [
+      'Basic Plan — PKR 5,000 / Year',
+      'Standard Plan — PKR 10,000 / Year',
+      'Premium Plan — PKR 25,000 / Year',
+      'Elite Lifetime Plan — PKR 50,000 (One-Time)',
   ];
 
   const handleChange = (e) => {
@@ -62,6 +80,7 @@ const Contact = () => {
         email: '',
         phone: '',
         service: '',
+        package: '', // Reset package field
         message: ''
       });
       
@@ -77,9 +96,9 @@ const Contact = () => {
         </svg>
       ),
       title: 'Call Us',
-      info: '0300-1311111',
+      info: '+92 300 1234567',
       subtext: '24/7 Available',
-      link: 'tel:+92001311111',
+      link: 'tel:+923001234567',
       gradient: 'from-orange-500 to-orange-600'
     },
     {
@@ -89,9 +108,9 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email Us',
-      info: 'kaamlay.com@gmail.com',
+      info: 'info@kaamlay.com',
       subtext: 'Reply in 24 hours',
-      link: 'mailto:kaamlay.com@gmail.com',
+      link: 'mailto:info@kaamlay.com',
       gradient: 'from-orange-600 to-orange-700'
     },
     {
@@ -102,8 +121,8 @@ const Contact = () => {
         </svg>
       ),
       title: 'Visit Us',
-      info: 'Plot # 03 Near Kiani House, DHA Phase 02',
-      subtext: 'Mon-Sun, 9AM-9PM',
+      info: 'Islamabad, Pakistan',
+      subtext: 'Mon-Sat, 8AM-8PM',
       link: null,
       gradient: 'from-orange-700 to-orange-800'
     }
@@ -247,8 +266,29 @@ const Contact = () => {
                 >
                   <option value="">-- Choose a Service --</option>
                   {services.map((service, index) => (
-                    <option key={index} value={service}>
-                      {service}
+                    service === '---' 
+                      ? <option key={index} disabled>──────────</option>
+                      : <option key={index} value={service}>{service}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* NEW: Membership Package Dropdown */}
+              <div>
+                <label htmlFor="package" className="block text-sm font-bold text-gray-900 mb-2">
+                  Select a Membership Package (Optional)
+                </label>
+                <select
+                  id="package"
+                  name="package"
+                  value={formData.package}
+                  onChange={handleChange}
+                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl bg-white text-gray-900 text-lg focus:border-orange-500 focus:ring-4 focus:ring-orange-100 focus:outline-none transition-all"
+                >
+                  <option value="">-- Just Booking a Service --</option>
+                  {packages.map((pkg, index) => (
+                    <option key={index} value={pkg}>
+                      {pkg}
                     </option>
                   ))}
                 </select>
