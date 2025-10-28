@@ -6,14 +6,13 @@ const Contact = () => {
     email: '',
     phone: '',
     service: '',
-    package: '', // Added new state for package selection
+    package: '',
     message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  // Comprehensive list of all services
   const services = [
     'Electrical Works',
     'Plumbing Works',
@@ -22,7 +21,7 @@ const Contact = () => {
     'Car Wash (Home Service)',
     'Free Home General Check-Up',
     'Free Winter Check-Up',
-    '---', // Divider
+    '---',
     'Deep Cleaning',
     'Glass & Window Cleaning',
     'Painting & Renovation',
@@ -35,7 +34,6 @@ const Contact = () => {
     'Other'
   ];
 
-  // List of membership packages
   const packages = [
       'Basic Plan — PKR 5,000 / Year',
       'Standard Plan — PKR 10,000 / Year',
@@ -68,24 +66,38 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
-    
-    setTimeout(() => {
-      setSubmitStatus({
-        type: 'success',
-        message: 'Success! We received your message and will get back to you within 24 hours.'
-      });
-      setIsSubmitting(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        package: '', // Reset package field
-        message: ''
-      });
-      
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+    setSubmitStatus(null); // Clear previous status messages
+
+    try {
+        const response = await fetch('/send_email.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+            setSubmitStatus({ type: 'success', message: result.message });
+            // Reset form on success
+            setFormData({
+                name: '', email: '', phone: '', service: '', package: '', message: ''
+            });
+        } else {
+            // Handle server-side errors
+            setSubmitStatus({ type: 'error', message: result.message || 'An unexpected server error occurred.' });
+        }
+    } catch (error) {
+        // Handle network errors
+        console.error('Submission error:', error);
+        setSubmitStatus({ type: 'error', message: 'Could not connect to the server. Please check your connection and try again.' });
+    } finally {
+        setIsSubmitting(false);
+        // Hide the status message after 6 seconds
+        setTimeout(() => setSubmitStatus(null), 6000);
+    }
   };
 
   const contactCards = [
@@ -273,7 +285,7 @@ const Contact = () => {
                 </select>
               </div>
 
-              {/* NEW: Membership Package Dropdown */}
+              {/* Membership Package Dropdown */}
               <div>
                 <label htmlFor="package" className="block text-sm font-bold text-gray-900 mb-2">
                   Select a Membership Package (Optional)
@@ -285,7 +297,7 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl bg-white text-gray-900 text-lg focus:border-orange-500 focus:ring-4 focus:ring-orange-100 focus:outline-none transition-all"
                 >
-                  <option value="">-- Just Booking a Service --</option>
+                  <option value="">-- Not Interested / Just Booking a Service --</option>
                   {packages.map((pkg, index) => (
                     <option key={index} value={pkg}>
                       {pkg}
