@@ -14,20 +14,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/' },
-    { name: 'Membership', path: '/' },
-    { name: 'About', path: '/' },
-    { name: 'Contact', path: '/contact' }
-  ];
   // const navLinks = [
   //   { name: 'Home', path: '/' },
-  //   { name: 'Services', path: '/services' },
-  //   { name: 'Membership', path: '/membership' },
-  //   { name: 'About', path: '/about' },
+  //   { name: 'Services', path: '/' },
+  //   { name: 'Membership', path: '/' },
+  //   { name: 'About', path: '/' },
   //   { name: 'Contact', path: '/contact' }
   // ];
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'Membership', path: '/membership' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' }
+  ];
 
   const handleNavClick = (path) => {
     window.location.href = path;

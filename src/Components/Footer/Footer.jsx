@@ -3,38 +3,38 @@ import React from 'react';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/' },
-    { name: 'Services', path: '/' },
-    { name: 'Membership', path: '/' },
-    { name: 'Contact', path: '/contact' }
-  ];
-
-  const services = [
-    { name: 'Electrical Works', path: '/' },
-    { name: 'Plumbing Works', path: '/' },
-    { name: 'AC Services', path: '/' },
-    { name: 'Carpentry', path: '/' },
-    { name: 'Painting', path: '/' },
-    { name: 'Deep Cleaning', path: '/' }
-  ];
   // const quickLinks = [
   //   { name: 'Home', path: '/' },
-  //   { name: 'About Us', path: '/about' },
-  //   { name: 'Services', path: '/services' },
-  //   { name: 'Membership', path: '/membership' },
+  //   { name: 'About Us', path: '/' },
+  //   { name: 'Services', path: '/' },
+  //   { name: 'Membership', path: '/' },
   //   { name: 'Contact', path: '/contact' }
   // ];
 
   // const services = [
-  //   { name: 'Electrical Works', path: '/services' },
-  //   { name: 'Plumbing Works', path: '/services' },
-  //   { name: 'AC Services', path: '/services' },
-  //   { name: 'Carpentry', path: '/services' },
-  //   { name: 'Painting', path: '/services' },
-  //   { name: 'Deep Cleaning', path: '/services' }
+  //   { name: 'Electrical Works', path: '/' },
+  //   { name: 'Plumbing Works', path: '/' },
+  //   { name: 'AC Services', path: '/' },
+  //   { name: 'Carpentry', path: '/' },
+  //   { name: 'Painting', path: '/' },
+  //   { name: 'Deep Cleaning', path: '/' }
   // ];
+  const quickLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Membership', path: '/membership' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  const services = [
+    { name: 'Electrical Works', path: '/services' },
+    { name: 'Plumbing Works', path: '/services' },
+    { name: 'AC Services', path: '/services' },
+    { name: 'Carpentry', path: '/services' },
+    { name: 'Painting', path: '/services' },
+    { name: 'Deep Cleaning', path: '/services' }
+  ];
 
   const legalLinks = [
     { name: 'Privacy Policy', path: '/privacy-policy' },
