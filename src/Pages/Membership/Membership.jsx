@@ -10,21 +10,65 @@ const CheckIcon = () => (
 const Membership = () => {
     const plans = [
         {
-            name: 'Basic', price: '5,000', description: 'For essential peace of mind.',
-            features: ['3 Free Services Annually', '1 Free Annual Check-up', '10% Discount on services', 'Priority Booking'],
+            name: 'Basic',
+            price: '5,000',
+            period: '/ Year',
+            description: 'Perfect for small households and individuals who want affordable and reliable care.',
+            features: [
+                '3 Free Services (any category) per year',
+                'Free Annual Home General Check-Up',
+                'Free Winter Check-Up',
+                'Priority Booking & Discounted Additional Services'
+            ],
             popular: false,
         },
         {
-            name: 'Standard', price: '9,000', description: 'Best value for families.',
-            features: ['6 Free Services Annually', '2 Free Annual Check-ups', '15% Discount on services', 'High Priority Booking', 'Phone & Email Support'],
+            name: 'Standard',
+            price: '10,000',
+            period: '/ Year',
+            description: 'Best for families and small offices seeking regular maintenance coverage.',
+            features: [
+                '7 Free Services per year',
+                'All Basic Plan Benefits',
+                'Free Seasonal Appliance Check-Up (AC, Geyser, Refrigerator)',
+                '10% Discount on Additional Services'
+            ],
             popular: true,
         },
         {
-            name: 'Premium', price: '15,000', description: 'Comprehensive home care.',
-            features: ['9 Free Services Annually', '4 Free Annual Check-ups', '20% Discount on services', 'Highest Priority Booking', 'Dedicated Account Manager'],
+            name: 'Premium',
+            price: '25,000',
+            period: '/ Year',
+            description: 'Designed for those who want complete peace of mind and unlimited convenience.',
+            features: [
+                'Unlimited Free Services throughout the year',
+                'All Standard Plan Benefits',
+                'Free Emergency Visits (within city limits)',
+                'Dedicated Account Manager',
+                '15% Discount on Spare Parts'
+            ],
+            popular: false,
+        },
+        {
+            name: 'Elite Lifetime',
+            price: '50,000',
+            period: '(One-Time)',
+            description: 'The ultimate maintenance freedom for life.',
+            features: [
+                'Lifetime Unlimited Free Services',
+                'Annual Renewal Fee: PKR 5,000 only',
+                'Lifetime Priority Support',
+                'Annual Home & Office Health Audit',
+                'Exclusive Access to New Features & Rewards'
+            ],
             popular: false,
         },
     ];
+
+    // Function to handle redirection to the contact page
+    const handleChoosePlan = () => {
+        window.location.href = '/contact';
+    };
 
   return (
     <div className="bg-white font-lato">
@@ -41,31 +85,36 @@ const Membership = () => {
         {/* Comparison Table Section */}
         <section className="py-20 md:py-28">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                {/* Updated grid layout to handle 4 cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
                     {plans.map((plan) => (
                         <div key={plan.name} className={`relative rounded-2xl p-8 flex flex-col transition-all duration-300 ${plan.popular ? 'bg-white border-4 border-brand-orange shadow-2xl scale-105' : 'bg-brand-gray border border-gray-200 shadow-lg hover:shadow-xl'}`}>
                             {plan.popular && (
                                 <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2">
-                                    <span className="bg-brand-orange text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg uppercase tracking-wider">Most Popular</span>
+                                    {/* <span className="bg-brand-orange text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg uppercase tracking-wider">Most Popular</span> */}
                                 </div>
                             )}
                             <div className="flex-grow">
                                 <h3 className="text-3xl font-bold text-brand-black font-montserrat text-center">{plan.name}</h3>
-                                <p className="text-center text-gray-600 mt-2 h-8">{plan.description}</p>
+                                <p className="text-center text-gray-600 mt-2 min-h-[6rem]">{plan.description}</p>
                                 <div className="text-center my-8">
                                     <span className="text-5xl font-extrabold text-brand-black tracking-tight">PKR {plan.price}</span>
-                                    <span className="text-gray-500 font-medium">/year</span>
+                                    <span className="text-gray-500 font-medium">{plan.period}</span>
                                 </div>
                                 <ul className="space-y-4 mb-10">
                                     {plan.features.map((feature, index) => (
-                                        <li key={index} className="flex items-center text-gray-800">
-                                            <CheckIcon />
+                                        <li key={index} className="flex items-start text-gray-800">
+                                            <div className="flex-shrink-0"><CheckIcon /></div>
                                             <span>{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-                            <button className={`w-full py-4 rounded-lg font-bold text-lg transition-colors ${plan.popular ? 'bg-brand-orange text-white hover:bg-opacity-90 shadow-lg' : 'bg-white text-brand-orange border-2 border-brand-orange hover:bg-orange-50'}`}>
+                            {/* Added onClick handler to this button */}
+                            <button 
+                                onClick={handleChoosePlan}
+                                className={`w-full mt-auto py-4 rounded-lg font-bold text-lg transition-colors ${plan.popular ? 'bg-brand-orange text-white hover:bg-opacity-90 shadow-lg' : 'bg-white text-brand-orange border-2 border-brand-orange hover:bg-orange-50'}`}
+                            >
                                 Choose Plan
                             </button>
                         </div>
@@ -80,9 +129,14 @@ const Membership = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-black font-montserrat text-center mb-12">Frequently Asked Questions</h2>
                 <div className="space-y-8">
                     {[
-                        { q: "How do I book a free service?", a: "Once you are a member, simply log into your account, choose a service, and your available free service credits will be automatically applied at checkout." },
-                        { q: "Can I upgrade or downgrade my plan?", a: "Yes! You can change your plan at any time from your account dashboard. The new plan will be prorated based on your current subscription." },
-                        { q: "What does a 'Preventive Check-up' include?", a: "Our technician will perform a multi-point inspection of key areas like your AC units, plumbing system, and electrical panel to identify potential issues before they become major problems." }
+                        { q: "What is Kaamlay.com?", a: "Kaamlay.com is Pakistan’s first all-in-one online service platform where you can book skilled workers like plumbers, electricians, AC technicians, carpenters, and car washers right at your doorstep." },
+                        { q: "How does Kaamlay.com work?", a: "Simply visit our website, select the service you need, choose your city, and place your booking. A verified Kaamlay technician will arrive at your location to complete the job." },
+                        { q: "Are Kaamlay technicians trained and verified?", a: "Yes. Every technician on Kaamlay.com goes through a complete verification and training process to ensure safety, professionalism, and quality work." },
+                        { q: "What cities are currently covered?", a: "We are currently available in major cities like Islamabad, Lahore, Karachi, Peshawar, and Rawalpindi. More cities are being added every month through our franchise network." },
+                        { q: "How can I become a Kaamlay member?", a: "You can join our membership program through the “Membership Plans” page on our website. Members enjoy discounts, priority bookings, and loyalty benefits." },
+                        { q: "Can I join Kaamlay as a service provider?", a: "Yes. Skilled individuals and maintenance experts can register on the “Join as Technician” page to start getting jobs and earn monthly income." },
+                        { q: "What payment methods do you accept?", a: "We accept cash on service completion, online transfers, and in selected cities, digital wallet payments." },
+                        { q: "How can I contact customer support?", a: "📞 Phone: 0300-1311111 📧 Email: kaamlay.com@gmail.com 🌐 Website: www.kaamlay.com" }
                     ].map(faq => (
                         <div key={faq.q} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                             <h4 className="font-bold text-xl text-brand-black font-montserrat">{faq.q}</h4>

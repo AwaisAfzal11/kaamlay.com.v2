@@ -77,9 +77,9 @@ const Contact = () => {
         </svg>
       ),
       title: 'Call Us',
-      info: '+92 300 1234567',
+      info: '0300-1311111',
       subtext: '24/7 Available',
-      link: 'tel:+923001234567',
+      link: 'tel:+92001311111',
       gradient: 'from-orange-500 to-orange-600'
     },
     {
@@ -89,9 +89,9 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email Us',
-      info: 'info@kaamlay.com',
+      info: 'kaamlay.com@gmail.com',
       subtext: 'Reply in 24 hours',
-      link: 'mailto:info@kaamlay.com',
+      link: 'mailto:kaamlay.com@gmail.com',
       gradient: 'from-orange-600 to-orange-700'
     },
     {
@@ -102,8 +102,8 @@ const Contact = () => {
         </svg>
       ),
       title: 'Visit Us',
-      info: 'Islamabad, Pakistan',
-      subtext: 'Mon-Sat, 8AM-8PM',
+      info: 'Plot # 03 Near Kiani House, DHA Phase 02',
+      subtext: 'Mon-Sun, 9AM-9PM',
       link: null,
       gradient: 'from-orange-700 to-orange-800'
     }

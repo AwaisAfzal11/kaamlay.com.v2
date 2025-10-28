@@ -26,22 +26,50 @@ const Services = () => {
   return (
     <div className="bg-white font-lato">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-orange-50 via-white to-gray-50 py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-brand-black font-montserrat tracking-tight">
-            Comprehensive Maintenance Solutions
+      {/* Hero Section */}
+      <section className="relative bg-gray-900 text-white py-24 md:py-32 overflow-hidden">
+        {/* Background Grid */}
+        <div
+          className="absolute inset-0 opacity-50"
+          style={{
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg width='100' height='100' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'><path d='M 100 0 L 0 0 0 100' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/></pattern></defs><rect width='100%' height='100%' fill='url(%23grid)'/></svg>")`,
+          }}
+        ></div>
+
+        {/* Gradient Glow */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-600/20 to-transparent filter blur-[100px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-orange-500/10 to-transparent filter blur-[100px]"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 pb-2">
+            Expert Home & Office Services, On-Demand
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-8">
-            From minor fixes to major renovations, Kaamlay offers a complete range of professional services for your home and office, delivered with trust and precision.
+          <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-8">
+            From minor fixes to major installations, Kaamlay delivers professional, reliable, and timely services right to your doorstep.
           </p>
+
           <button
             onClick={handleBookNow}
-            className="mt-10 bg-brand-orange text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="mt-10 group bg-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/40 transform hover:-translate-y-1 flex items-center justify-center mx-auto"
           >
             Get a Free Quote
+            <svg
+              className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </button>
         </div>
       </section>
+
 
       {/* Services Grid Section */}
       <section className="py-20 md:py-28 bg-white">
@@ -71,28 +99,28 @@ const Services = () => {
         </div>
       </section>
 
-       {/* Why Choose Us Section */}
-       <section className="py-20 md:py-28 bg-brand-gray">
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-brand-black font-montserrat">Your Peace of Mind is Our Priority</h2>
-           </div>
-           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-             {[
-               { icon: '👨‍🔧', title: 'Vetted Professionals', desc: 'Every technician is background-checked and certified.' },
-               { icon: '⏰', title: 'On-Time Guarantee', desc: 'Punctual service, because we value your time.' },
-               { icon: '💰', title: 'Transparent Pricing', desc: 'Clear, upfront quotes with no hidden fees or surprises.' },
-               { icon: '🛡️', title: 'Satisfaction Guaranteed', desc: 'We stand by our work with a 100% satisfaction guarantee.' }
-             ].map((item) => (
-               <div key={item.title} className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
-                 <div className="text-5xl mb-4">{item.icon}</div>
-                 <h3 className="text-xl font-bold font-montserrat text-brand-black mb-2">{item.title}</h3>
-                 <p className="text-gray-600">{item.desc}</p>
-               </div>
-             ))}
-           </div>
-         </div>
-       </section>
+      {/* Why Choose Us Section */}
+      <section className="py-20 md:py-28 bg-brand-gray">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-black font-montserrat">Your Peace of Mind is Our Priority</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: '👨‍🔧', title: 'Vetted Professionals', desc: 'Every technician is background-checked and certified.' },
+              { icon: '⏰', title: 'On-Time Guarantee', desc: 'Punctual service, because we value your time.' },
+              { icon: '💰', title: 'Transparent Pricing', desc: 'Clear, upfront quotes with no hidden fees or surprises.' },
+              { icon: '🛡️', title: 'Satisfaction Guaranteed', desc: 'We stand by our work with a 100% satisfaction guarantee.' }
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold font-montserrat text-brand-black mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

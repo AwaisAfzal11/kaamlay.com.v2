@@ -120,7 +120,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12 relative">
             <div className="hidden md:block absolute top-1/4 left-1/3 right-1/3 h-1 bg-gradient-to-r from-orange-200 via-orange-400 to-orange-200"></div>
             {[
-              { step: '01', title: 'Book Online', desc: 'Select your service and pick a convenient time slot that works for you', icon: '📱', color: 'from-orange-400 to-orange-500' },
+              { step: '01', title: 'Book Online', desc: 'Select your service and you will get a phone call.', icon: '📱', color: 'from-orange-400 to-orange-500' },
               { step: '02', title: 'Verified Pro Arrives', desc: 'Our vetted technician arrives on time with all necessary tools', icon: '✅', color: 'from-orange-500 to-orange-600' },
               { step: '03', title: 'Problem Solved', desc: 'Quality work completed with 100% satisfaction guarantee', icon: '🎯', color: 'from-orange-600 to-orange-700' }
             ].map((item, idx) => (
@@ -173,6 +173,7 @@ const Home = () => {
       </section>
 
       {/* Membership Section */}
+      {/* Membership Section */}
       <section id="membership" className="py-16 md:py-24 bg-gradient-to-br from-orange-600 via-orange-500 to-orange-600 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-5"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400 rounded-full filter blur-3xl opacity-20"></div>
@@ -193,9 +194,9 @@ const Home = () => {
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: '🎁', text: 'Up to 12 free services annually' },
+                  { icon: '🎁', text: 'Up to Unlimited free services annually' },
                   { icon: '🔍', text: 'Regular preventive check-ups' },
-                  { icon: '💰', text: '10-25% discount on additional work' },
+                  { icon: '💰', text: 'Up to 15% discount on parts' },
                   { icon: '👤', text: 'Dedicated account manager (Premium & Elite)' }
                 ].map((benefit, idx) => (
                   <div key={idx} className="flex items-center gap-4 text-white">
@@ -207,7 +208,7 @@ const Home = () => {
                 ))}
               </div>
               <a 
-                href="#plans"
+                href="/membership"
                 className="inline-block bg-white text-orange-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
               >
                 Explore All Plans
@@ -222,10 +223,10 @@ const Home = () => {
               </div>
               <div className="space-y-4">
                 {[
-                  { name: 'Basic', price: '5,000', services: '3 free services/year', features: ['Email Support', 'Basic Priority'] },
-                  { name: 'Standard', price: '9,000', services: '6 free services/year', features: ['Phone Support', 'Standard Priority', '10% Discount'], popular: true },
-                  { name: 'Premium', price: '15,000', services: '9 free services/year', features: ['24/7 Support', 'High Priority', '15% Discount'] },
-                  { name: 'Elite', price: '25,000', services: '12 free services/year', features: ['Dedicated Manager', 'Highest Priority', '25% Discount'] }
+                  { name: 'Basic', price: '5,000', services: '3 free services/year', features: ['Annual Check-up', 'Priority Booking'] },
+                  { name: 'Standard', price: '10,000', services: '7 free services/year', features: ['Seasonal Check-up', '10% Discount'], popular: true },
+                  { name: 'Premium', price: '25,000', services: 'Unlimited services/year', features: ['Emergency Visits', '15% Parts Discount'] },
+                  { name: 'Elite', price: '50,000', services: 'Lifetime unlimited services', features: ['One-Time Fee', 'Lifetime Priority'] }
                 ].map((plan, idx) => (
                   <div key={idx} className={`relative p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg ${plan.popular ? 'border-orange-500 bg-orange-50 shadow-md' : 'border-gray-200 hover:border-orange-200'}`}>
                     {plan.popular && (
@@ -252,7 +253,7 @@ const Home = () => {
                       </div>
                       <div className="text-right ml-4">
                         <div className="text-3xl font-bold text-orange-600">PKR {plan.price}</div>
-                        <p className="text-xs text-gray-500">per year</p>
+                        <p className="text-xs text-gray-500">{plan.name === 'Elite' ? 'one-time' : 'per year'}</p>
                       </div>
                     </div>
                   </div>

@@ -19,17 +19,24 @@ const About = () => {
         <div className="bg-white font-lato">
             {/* Hero Section */}
             {/* Developer Note: Replace bg-brand-gray with a real background image e.g., style={{backgroundImage: 'url(...)'}} */}
-            <section className="relative bg-brand-gray py-32 md:py-40">
-                <div className="absolute inset-0 bg-black opacity-40"></div>
-                <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-white font-montserrat tracking-tight">
-                        Building Trust, One Service at a Time.
-                    </h1>
-                    <p className="mt-6 text-lg md:text-xl text-gray-200 leading-8">
-                        Kaamlay was founded to solve a simple problem: finding reliable maintenance help in Pakistan shouldn't be a hassle.
-                    </p>
-                </div>
-            </section>
+            {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-orange-50 via-white to-gray-100 py-32 md:py-40 overflow-hidden">
+        {/* Abstract background shapes */}
+        <div className="absolute top-0 left-0 -translate-x-1/3 -translate-y-1/3 w-96 h-96 rounded-full bg-orange-200/50 filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 translate-x-1/3 translate-y-1/3 w-96 h-96 rounded-full bg-orange-200/50 filter blur-3xl"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block bg-orange-100 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            Our Mission
+          </div>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 font-montserrat tracking-tight">
+            Building Trust, One Service at a Time.
+          </h1>
+          <p className="mt-6 text-lg md:text-xl text-gray-600 leading-8 max-w-3xl mx-auto">
+            Kaamlay was founded to solve a simple problem: finding reliable, professional, and trustworthy maintenance help in Pakistan shouldn't be a hassle. We're here to change that.
+          </p>
+        </div>
+      </section>
 
             {/* Our Values Section */}
             <section className="py-20 md:py-28">

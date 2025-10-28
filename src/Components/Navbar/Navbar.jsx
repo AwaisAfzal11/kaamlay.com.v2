@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../../Assets/kaamlay_logo_bg.png'; // 1. Import the logo
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,8 +31,8 @@ const Navbar = () => {
     <>
       <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white shadow-lg py-4' 
-          : 'bg-white/95 backdrop-blur-sm py-6'
+          ? 'bg-white shadow-lg py-3' 
+          : 'bg-white/95 backdrop-blur-sm py-4'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -39,15 +40,14 @@ const Navbar = () => {
             <div className="flex items-center">
               <a 
                 href="/" 
-                className="flex items-center space-x-3 group"
+                className="flex items-center group"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                  <span className="text-2xl font-bold text-white">K</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-bold text-gray-900 leading-tight">Kaamlay</span>
-                  <span className="text-xs text-gray-600 leading-tight">Home Services</span>
-                </div>
+                {/* 2. Replaced the placeholder div with an img tag */}
+                <img 
+                  src={logo} 
+                  alt="Kaamlay Logo" 
+                  className="h-14 w-auto transition-transform duration-300 group-hover:scale-105" 
+                />
               </a>
             </div>
 
