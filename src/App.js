@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 import Contact from "./Pages/Contact/Contact";
 import About from "./Pages/About/About";
 import Services from "./Pages/Services/Services";
-import Membership from "./Pages/Membership/Membership";
+import Membership from "./Pages/Membership/Memberships";
 
 function App() {
   useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/membership" element={<Membership />} />
+          <Route path="/memberships" element={<Membership />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
