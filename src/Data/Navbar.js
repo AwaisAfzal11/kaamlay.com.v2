@@ -19,12 +19,8 @@ const Navbar = {
             path: "/contact"
         },
         {
-            name: "Case Studies",
-            path: "/case-studies"
-        },
-        {
-            name: "Insgihts",
-            path: "/insights"
+            name: "Membership",
+            path: "/membership"
         },
     ]
 };
